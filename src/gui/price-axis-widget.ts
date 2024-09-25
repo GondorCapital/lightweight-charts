@@ -638,6 +638,11 @@ export class PriceAxisWidget implements IDestroyable {
 			}
 		}
 
+		// insert the top 1 to the bottom list to prevent overlapping between top and bottom
+		if (top.length && bottom.length) {
+			bottom.splice(0, 0, top[0]);
+		}
+
 		recalculateOverlapping(top, 1, this._size.height, rendererOptions);
 		recalculateOverlapping(bottom, -1, this._size.height, rendererOptions);
 	}
