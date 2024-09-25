@@ -638,12 +638,12 @@ export class PriceAxisWidget implements IDestroyable {
 			}
 		}
 
-		// insert the top 1 to the bottom list to prevent overlapping between top and bottom
+		recalculateOverlapping(top, 1, this._size.height, rendererOptions);
+		// move the last top to the first bottom to prevent overlapping between the items in top and bottom
 		if (top.length && bottom.length) {
-			bottom.splice(0, 0, top[0]);
+			bottom.splice(0, 0, top.splice(0, 1)[0]);
 		}
 
-		recalculateOverlapping(top, 1, this._size.height, rendererOptions);
 		recalculateOverlapping(bottom, -1, this._size.height, rendererOptions);
 	}
 
