@@ -82,5 +82,4 @@ function runTestCase(container) {
 		]);
 		levels[i].series = s;
 	}
-
 }
